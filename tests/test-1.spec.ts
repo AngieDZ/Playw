@@ -1,0 +1,30 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('https://demoqa.com/forms');
+  await page.getByRole('listitem').click();
+  await page.getByPlaceholder('First Name').click();
+  await page.getByPlaceholder('First Name').fill('Teo');
+  await page.getByPlaceholder('Last Name').click();
+  await page.getByPlaceholder('Last Name').fill('Buelvas');
+  await page.getByPlaceholder('name@example.com').click();
+  await page.getByPlaceholder('name@example.com').click();
+  await page.getByPlaceholder('name@example.com').fill('teito@gmail.com');
+  await page.getByText('MaleFemaleOther').click();
+  await page.getByPlaceholder('Mobile Number').click();
+  await page.getByPlaceholder('Mobile Number').fill('3002032844');
+  await page.locator('#dateOfBirthInput').click();
+  await page.getByLabel('Choose Wednesday, September 18th,').click();
+  await page.locator('.subjects-auto-complete__value-container').click();
+  await page.locator('.subjects-auto-complete__value-container').click();
+  await page.getByText('Sports').click();
+  await page.getByLabel('Select picture').click();
+  await page.getByLabel('Select picture').setInputFiles('WhatsApp Image 2024-09-20 at 15.14.06.jpeg');
+  await page.getByPlaceholder('Current Address').click();
+  await page.getByPlaceholder('Current Address').fill('calle 54#86');
+  await page.locator('#state svg').click();
+  await page.getByText('Haryana', { exact: true }).click();
+  await page.locator('.css-tlfecz-indicatorContainer').click();
+  await page.getByText('Karnal', { exact: true }).click();
+  await page.getByRole('button', { name: 'Submit' }).click();
+});
